@@ -9,8 +9,11 @@ app = Flask(__name__)
 # os.system('flask run -h 10.10.110.166')
 
 ip = str(os.system("hostname -i"))
+print(ip)
 ip = ip.split()
+print(ip)
 ip = ip[0]
+print(ip)
 # ip = "192.168.0.32"
 
 # Uso: X.X.X.X:5000/on
@@ -40,9 +43,9 @@ def update():
         sys.exit()
         return "Test..."
 
-os.system("clear")
+# os.system("clear")
 
 print(f"Iniciado Correctamente en la dirección: {ip}")
 
-serve(app, host=ip, port=5000) # Ejecuta la API por medio de waitress
+# serve(app, host=ip, port=5000) # Ejecuta la API por medio de waitress
 
