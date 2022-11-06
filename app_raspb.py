@@ -9,9 +9,7 @@ app = Flask(__name__)
 
 # os.system('flask run -h 10.10.110.166')
 
-ip = str(((subprocess.check_output("hostname -i", shell=True)).split())[-1])
-ip = ip.replace("b", "")
-ip = ip.replace("'", "")
+ip = ((str(((subprocess.check_output("hostname -i", shell=True)).split())[-1])).replace("b", "")).replace("'", "")
 
 # Uso: X.X.X.X:5000/on
 @app.route('/on') # Enciende el televisor por medio del cec
