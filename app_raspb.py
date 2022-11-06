@@ -1,4 +1,5 @@
 import os
+import sys
 from re import T
 from flask import Flask, request
 from waitress import serve
@@ -6,6 +7,8 @@ from waitress import serve
 app = Flask(__name__)
 
 # os.system('flask run -h 10.10.110.166')
+
+ip = ((str(os.system("hostname -i"))).split())[0]
 
 # Uso: X.X.X.X:5000/on
 @app.route('/on') # Enciende el televisor por medio del cec
@@ -30,7 +33,8 @@ def web():
 
 @app.route('/update') # Abre una página web en la RaspB
 def update():
-        # os.system('sensible-browser ')
+        os.system("python3 /Desktop/api_controltv/update.py")
+        sys.exit()
         return "Test..."
 
-serve(app, host="172.18.4.168", port=5000) # Ejecuta la API por medio de waitress
+serve(app, host=ip, port=5000) # Ejecuta la API por medio de waitress
