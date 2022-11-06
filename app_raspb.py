@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 # os.system('flask run -h 10.10.110.166')
 
-ip = ((subprocess.check_output("hostname -i", shell=True)).split())
+ip = ((subprocess.check_output("hostname -i", shell=True)).split())[-1]
 # ip = os.popen("hostname -i").read()
 # print(ip)
 # ip = ip.split()
