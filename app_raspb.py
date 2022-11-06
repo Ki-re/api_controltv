@@ -39,8 +39,9 @@ def update():
         sys.exit()
         return "Test..."
 
-serve(app, host=ip, port=5000) # Ejecuta la API por medio de waitress
-
 os.system("clear")
 
 print(f"Iniciado Correctamente en la dirección: {ip}")
+
+serve(app, host=ip, port=5000) # Ejecuta la API por medio de waitress
+
