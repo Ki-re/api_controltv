@@ -29,3 +29,5 @@ def web():
 # app.run(port=5000)
 
 serve(app, host="172.18.4.168", port=5000) # Ejecuta la API por medio de waitress
+
+#TEST
