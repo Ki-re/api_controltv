@@ -40,7 +40,7 @@ def update(ips):
         requests.get(f"http://{ip}:5000/update")
 
 while True:
-    opcion = ("Menú Principal", ["Encender todas las TV", "Apagar todas las TV", "Encender una TV", "Apagar una TV", "Cambiar Enlace", "Actualizar todas las TV"], False)
+    opcion = menu("Menú Principal", ["Encender todas las TV", "Apagar todas las TV", "Encender una TV", "Apagar una TV", "Cambiar Enlace", "Actualizar todas las TV"], False)
     if opcion == 0:
         encender(True)
     elif opcion == 1:
