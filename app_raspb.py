@@ -36,7 +36,6 @@ def web():
 @app.route('/update') # Abre una página web en la RaspB
 def update():
         os.system("python3 /Desktop/api_controltv/update.py")
-        sys.exit()
         return "Test..."
 
 # os.system("clear")
