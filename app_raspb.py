@@ -41,7 +41,7 @@ def update():
 
 # os.system("clear")
 
-print(f"Iniciado Correctamente en la dirección: {ip}")
+print(f"Iniciado Correctamente en la dirección: {ip}:{run_port}")
 
 serve(app, host=ip, port=run_port) # Ejecuta la API por medio de waitress
 
