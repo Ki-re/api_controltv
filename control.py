@@ -8,29 +8,29 @@ ips = [
 def menu(titulo, opciones, salir):
     print("\n")
     opciones = list(opciones)
-    print(f"##### {titulo} #####")
+    print(f"##### {titulo} #####\n")
     for a in range(len(opciones)):
         print(f"[{a}] - {opciones[a]}")
     if salir:
         print("[999] - Salir")
 
-    opcion = input("Escoge una opción")
+    opcion = input("\nEscoge una opción\n")
 
     return opcion
 
-def encender(tele):
-    if tele:
+def encender(todas, ip_dir):
+    if todas:
         for ip in ips:
             requests.get(f"http://{ip}:5000/on")
     else:
-        requests.get(f"http://{tele}:5000/on")
+        requests.get(f"http://{ip_dir}:5000/on")
 
-def apagar(tele):
-    if tele:
+def apagar(todas, ip_dir):
+    if todas:
         for ip in ips:
             requests.get(f"http://{ip}:5000/off")
     else:
-        requests.get(f"http://{tele}:5000/off")
+        requests.get(f"http://{ip_dir}:5000/off")
 
 def url(ip, link):
     requests.get(f"http://{ip}:5000/web?url={link}")
@@ -40,11 +40,11 @@ def update(ips):
         requests.get(f"http://{ip}:5000/update")
 
 while True:
-    opcion = menu("Menú Principal", ["Encender todas las TV", "Apagar todas las TV", "Encender una TV", "Apagar una TV", "Cambiar Enlace", "Actualizar todas las TV"], False)
+    opcion = int(menu("Menú Principal", ["Encender todas las TV", "Apagar todas las TV", "Encender una TV", "Apagar una TV", "Cambiar Enlace", "Actualizar todas las TV"], False))
     if opcion == 0:
-        encender(True)
+        encender(True, "")
     elif opcion == 1:
-        apagar(True)
+        apagar(True, "")
     elif opcion == 2:
         encender(ips[(menu(("Selecciona una dirección"), ips, False))])
     elif opcion == 3:
