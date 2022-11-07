@@ -35,7 +35,6 @@ def web():
 # Uso: X.X.X.X:5000/update
 @app.route('/update') # Permite la actualización mediante github
 def update():
-        # os.system(f"cd /home/{user}/Desktop/api_controltv | git pull {repository} main") # Clonamos el repositorio
         os.system(f"git pull {repository} main") # Clonamos el repositorio    
         return "Actualización Realizada Correctamente"
 
