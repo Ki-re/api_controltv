@@ -5,14 +5,12 @@ ips = [
     "10.10.110.234"
 ]
 
-def menu(titulo, opciones, salir):
+def menu(titulo, opciones):
     print("\n")
     opciones = list(opciones)
     print(f"##### {titulo} #####\n")
     for a in range(len(opciones)):
         print(f"[{a}] - {opciones[a]}")
-    if salir:
-        print("[999] - Salir")
 
     opcion = input("\nEscoge una opción\n")
 
@@ -40,17 +38,17 @@ def update(ips):
         requests.get(f"http://{ip}:5000/update")
 
 while True:
-    opcion = int(menu("Menú Principal", ["Encender todas las TV", "Apagar todas las TV", "Encender una TV", "Apagar una TV", "Cambiar Enlace", "Actualizar todas las TV"], False))
+    opcion = int(menu("Menú Principal", ["Encender todas las TV", "Apagar todas las TV", "Encender una TV", "Apagar una TV", "Cambiar Enlace", "Actualizar todas las TV"]))
     if opcion == 0:
         encender(True, "")
     elif opcion == 1:
         apagar(True, "")
     elif opcion == 2:
-        encender(ips[(menu(("Selecciona una dirección"), ips, False))])
+        encender(ips[(menu(("Selecciona una dirección"), ips))])
     elif opcion == 3:
-        apagar(ips[(menu(("Selecciona una dirección"), ips, False))])
+        apagar(ips[(menu(("Selecciona una dirección"), ips))])
     elif opcion == 4:
         link = input("Introduce un enlace \n")
-        url(ips[(menu(("Selecciona una dirección"), ips, False))], link)
+        url(ips[(menu(("Selecciona una dirección"), ips))], link)
     elif opcion == 5:
         update(ips)
