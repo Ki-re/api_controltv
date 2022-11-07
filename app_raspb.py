@@ -4,6 +4,8 @@ from re import T
 from flask import Flask, request
 from waitress import serve
 import subprocess
+import werkzeug.serving
+
 
 app = Flask(__name__)
 
@@ -35,12 +37,21 @@ def web():
 
 @app.route('/update') # Abre una página web en la RaspB
 def update():
-        os.system("python3 /Desktop/api_controltv/update.py")
+        repository = "https://github.com/Ki-re/api_controltv.git"
+        user = subprocess.check_output("echo $USER", shell=True)
+        os.system(f"cd /home/{user}/Desktop/api_controltv | git pull {repository} main") # Clonamos el repositorio
+        # os.system("python3 /Desktop/api_controltv/update.py")
+        
         return "Test..."
 
 # os.system("clear")
 
 print(f"Iniciado Correctamente en la dirección: {ip}:{run_port}")
 
-serve(app, host=ip, port=run_port) # Ejecuta la API por medio de waitress
+@werkzeug.serving.run_with_reloader
+def run_server():
+        app.debug = True
+        serve(app, host=ip, port=run_port) # Ejecuta por medio de waitress
+
+# serve(app, host=ip, port=run_port) # Ejecuta por medio de waitress
 
