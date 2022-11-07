@@ -9,8 +9,8 @@ app = Flask(__name__)
 repository = "https://github.com/Ki-re/api_controltv.git"
 user = subprocess.check_output("echo $USER", shell=True) # Obtenemos el username
 
-# ip = ((str(((subprocess.check_output("hostname -i", shell=True)).split())[-1])).replace("b", "")).replace("'", "") # Obtenemos la IP y limpiamos el output 
-ip = subprocess.check_output("hostname -I", shell=True)
+ip = ((str(((subprocess.check_output("hostname -I", shell=True)).split())[-1])).replace("b", "")).replace("'", "") # Obtenemos la IP y limpiamos el output 
+# ip = subprocess.check_output("hostname -I", shell=True)
 run_port = 5000
 
 # Uso: X.X.X.X:5000/on
