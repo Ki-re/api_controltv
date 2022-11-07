@@ -10,6 +10,7 @@ app = Flask(__name__)
 # os.system('flask run -h 10.10.110.166')
 
 ip = ((str(((subprocess.check_output("hostname -i", shell=True)).split())[-1])).replace("b", "")).replace("'", "")
+run_port = 5000
 
 # Uso: X.X.X.X:5000/on
 @app.route('/on') # Enciende el televisor por medio del cec
@@ -42,5 +43,5 @@ def update():
 
 print(f"Iniciado Correctamente en la dirección: {ip}")
 
-# serve(app, host=ip, port=5000) # Ejecuta la API por medio de waitress
+serve(app, host=ip, port=run_port) # Ejecuta la API por medio de waitress
 
