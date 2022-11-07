@@ -8,9 +8,7 @@ import werkzeug.serving
 app = Flask(__name__)
 repository = "https://github.com/Ki-re/api_controltv.git"
 user = subprocess.check_output("echo $USER", shell=True) # Obtenemos el username
-
 ip = ((str(((subprocess.check_output("hostname -I", shell=True)).split())[-1])).replace("b", "")).replace("'", "") # Obtenemos la IP y limpiamos el output 
-# ip = subprocess.check_output("hostname -I", shell=True)
 run_port = 5000
 
 # Uso: X.X.X.X:5000/on
@@ -36,6 +34,12 @@ def web():
 @app.route('/update') # Permite la actualización mediante github
 def update():
         os.system(f"git pull {repository} main") # Clonamos el repositorio    
+        return "Actualización Realizada Correctamente"
+
+@app.route('/pip') # Instala un nuevo modulo
+def update():
+        modulo = request.args['module']
+        os.system(f"python3 -m pip install {modulo}") # Clonamos el repositorio    
         return "Actualización Realizada Correctamente"
 
 ########################################################################################################################################
