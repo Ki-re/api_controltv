@@ -1,8 +1,8 @@
 import requests
 
 ips = [
-    "10.10.110.249",
-    "10.10.110.234"
+    "10.10.110.249",    # VM
+    "10.10.110.234"     # Raspi Test
 ]
 
 def menu(titulo, opciones):

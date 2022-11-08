@@ -36,11 +36,11 @@ def update():
         os.system(f"git pull {repository} main") # Clonamos el repositorio    
         return "Actualización Realizada Correctamente"
 
-@app.route('/pip') # Instala un nuevo modulo
-def update():
-        modulo = request.args['module']
-        os.system(f"python3 -m pip install {modulo}") # Clonamos el repositorio    
-        return "Actualización Realizada Correctamente"
+# @app.route('/pip') # Instala un nuevo modulo
+# def update():
+#         modulo = request.args['module']
+#         os.system(f"python3 -m pip install {modulo}") # Clonamos el repositorio    
+#         return "Actualización Realizada Correctamente"
 
 ########################################################################################################################################
 
