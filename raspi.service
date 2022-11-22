@@ -1,0 +1,10 @@
+[Unit]
+Description=Script api_controltv
+
+[Service]
+User=root
+WorkingDirectory=/home/$USER/Desktop/api_controltv
+ExecStart=/bin/bash -c '/usr/bin/python3 /home/$USER/Desktop/api_controltv/app_raspb.py'
+
+[Install]
+WantedBy=multi-user.target
