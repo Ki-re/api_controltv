@@ -25,7 +25,7 @@ except:
 if url == "":
         url = "google.com"
 
-os.system(f'nohup sensible-browser {url} --start-fullscreen &')
+os.system(f'sensible-browser {url}')
 
 # if int(subprocess.check_output("uptime | awk '{print $3}'"), shell=True) <= 3:
 #         os.system('sensible-browser --start-fullscreen')
