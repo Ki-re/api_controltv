@@ -23,8 +23,6 @@ except:
 if url == "":
         url = "google.com"
 
-time.sleep(30)
-
 os.system(f'sensible-browser {url}')
 
 # Uso: X.X.X.X:5000/on
