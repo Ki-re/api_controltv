@@ -12,6 +12,8 @@ user = subprocess.check_output("echo $USER", shell=True) # Obtenemos el username
 ip = ((str(((subprocess.check_output("hostname -I", shell=True)).split())[-1])).replace("b", "")).replace("'", "") # Obtenemos la IP y limpiamos el output 
 run_port = 5000
 
+url = ""
+
 try:
         path = f"/home/{user}/Desktop/defaultip.txt"
         file = open(path, "r")
