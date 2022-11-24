@@ -12,16 +12,27 @@ user = subprocess.check_output("echo $USER", shell=True) # Obtenemos el username
 ip = ((str(((subprocess.check_output("hostname -I", shell=True)).split())[-1])).replace("b", "")).replace("'", "") # Obtenemos la IP y limpiamos el output 
 run_port = 5000
 
-if int(subprocess.check_output("uptime | awk '{print $3}'"), shell=True) <= 3:
-        os.system('sensible-browser --start-fullscreen')
-        time.sleep(5)
-        try:
-                path = f"/home/{user}/Desktop/defaultip.txt"
-                file = open(path, "r")
-                url = file.read()
-        except:
-                url = 'ticgrup.com'
-        os.system(f'sensible-browser {url}')
+try:
+        path = f"/home/{user}/Desktop/defaultip.txt"
+        file = open(path, "r")
+        url = file.read()
+except:
+        pass
+
+if url == "":
+        url = "google.com"
+
+os.system(f'sensible-browser {url}')
+# if int(subprocess.check_output("uptime | awk '{print $3}'"), shell=True) <= 3:
+#         os.system('sensible-browser --start-fullscreen')
+#         time.sleep(5)
+#         try:
+#                 path = f"/home/{user}/Desktop/defaultip.txt"
+#                 file = open(path, "r")
+#                 url = file.read()
+#         except:
+#                 url = 'google.com'
+#         os.system(f'sensible-browser {url}')
 
 # Uso: X.X.X.X:5000/on
 @app.route('/on') # Enciende el televisor por medio del cec
