@@ -13,7 +13,7 @@ ip = ((str(((subprocess.check_output("hostname -I", shell=True)).split())[-1])).
 run_port = 5000
 
 url = ""
-os.system('sensible-browser --start-fullscreen &> /dev/null')
+# os.system('sensible-browser --start-fullscreen ')
 
 try:
         path = f"/home/{user}/Desktop/defaultip.txt"
@@ -25,7 +25,7 @@ except:
 if url == "":
         url = "google.com"
 
-os.system(f'sensible-browser {url}')
+os.system(f'sensible-browser {url} --start-fullscreen &> /dev/null')
 
 # if int(subprocess.check_output("uptime | awk '{print $3}'"), shell=True) <= 3:
 #         os.system('sensible-browser --start-fullscreen')
