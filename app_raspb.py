@@ -23,7 +23,7 @@ except:
 if url == "":
         url = "google.com"
 
-os.system(f'sensible-browser {url}')
+# os.system(f'sensible-browser {url} --')
 
 # Uso: X.X.X.X:5000/on
 @app.route('/on') # Enciende el televisor por medio del cec
