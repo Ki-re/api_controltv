@@ -4,10 +4,11 @@ from flask import Flask, request
 from waitress import serve
 import subprocess
 import werkzeug.serving
-import time
+
+# Para que se encienda chromium con la raspi hay que poner lo siguiente
+# @sensible-browser IP --start-fullscreen /etc/xdg/lxsession/LXDE-pi/autostart
 
 app = Flask(__name__)
-repository = "https://github.com/Ki-re/api_controltv.git"
 user = subprocess.check_output("echo $USER", shell=True) # Obtenemos el username
 ip = ((str(((subprocess.check_output("hostname -I", shell=True)).split())[-1])).replace("b", "")).replace("'", "") # Obtenemos la IP y limpiamos el output 
 run_port = 5000
@@ -34,9 +35,9 @@ def web():
 # Uso: X.X.X.X:5000/update
 @app.route('/update') # Permite la actualización mediante github
 def update():
-        os.system(f"git pull {repository} main") # Clonamos el repositorio    
+        os.system(f"git pull https://github.com/Ki-re/api_controltv.git main") # Clonamos el repositorio    
         return "Actualización Realizada Correctamente"
-        
+
 ########################################################################################################################################
 
 os.system("clear")
