@@ -4,12 +4,24 @@ from flask import Flask, request
 from waitress import serve
 import subprocess
 import werkzeug.serving
+import time
 
 app = Flask(__name__)
 repository = "https://github.com/Ki-re/api_controltv.git"
 user = subprocess.check_output("echo $USER", shell=True) # Obtenemos el username
 ip = ((str(((subprocess.check_output("hostname -I", shell=True)).split())[-1])).replace("b", "")).replace("'", "") # Obtenemos la IP y limpiamos el output 
 run_port = 5000
+
+if int(subprocess.check_output("uptime | awk '{print $3}'"), shell=True) <= 3:
+        os.system('sensible-browser --start-fullscreen')
+        time.sleep(5)
+        try:
+                path = f"/home/{user}/Desktop/defaultip.txt"
+                file = open(path, "r")
+                url = file.read()
+        except:
+                url = 'ticgrup.com'
+        os.system(f'sensible-browser {url}')
 
 # Uso: X.X.X.X:5000/on
 @app.route('/on') # Enciende el televisor por medio del cec
@@ -35,6 +47,15 @@ def web():
 def update():
         os.system(f"git pull {repository} main") # Clonamos el repositorio    
         return "Actualización Realizada Correctamente"
+
+@app.route('/defaultweb') # Abre una página web en la RaspB
+def web():
+        url = request.args['url']
+        path = f"/home/{user}/Desktop/defaultip.txt"
+        file = open(path, "w")
+        file.write(url)
+        file.close()
+        return "Nueva dirección predeterminada establecida"
 
 # @app.route('/pip') # Instala un nuevo modulo
 # def update():
