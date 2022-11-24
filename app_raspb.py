@@ -13,7 +13,7 @@ ip = ((str(((subprocess.check_output("hostname -I", shell=True)).split())[-1])).
 run_port = 5000
 
 url = ""
-os.system('sensible-browser --start-fullscreen &')
+os.system('sensible-browser --start-fullscreen &> /dev/null')
 
 try:
         path = f"/home/{user}/Desktop/defaultip.txt"
