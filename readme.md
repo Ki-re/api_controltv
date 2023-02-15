@@ -22,15 +22,6 @@
 <!-- About the Project -->
 ## About the Project
 
-
-<!-- Screenshots -->
-### Screenshots
-
-<div align="center"> 
-  <img src="https://placehold.co/600x400?text=Your+Screenshot+here" alt="screenshot" />
-</div>
-
-
 <!-- Getting Started -->
 ## Getting Started
 
