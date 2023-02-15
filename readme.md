@@ -1,9 +1,9 @@
 <div align="center">
-  <img src="assets/logo.png" alt="logo" width="200" height="auto" />
+  <img src="pi.png" alt="logo" width="200" height="auto" />
   <h1>API_ControlTV</h1>
   
   <p>
-    A lightweight API to control TV's via CEC-Client
+    A lightweight API to control TV's via CEC-Client with a Raspberry Pi
   </p>
   
 <h4>
