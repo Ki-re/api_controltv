@@ -17,13 +17,13 @@ run_port = 5000
 # Uso: X.X.X.X:5000/on
 @app.route('/on') # Enciende el televisor por medio del cec
 def on():
-        os.system('echo "on 0"|cec-client -s -d 1')
+        os.system('echo "on 0" | cec-client -s -d 1')
         return "Encendiendo televisor..."
 
 # Uso: X.X.X.X:5000/off
 @app.route('/off') # Apaga el televisor por medio del cec
 def off():
-        os.system('echo "standby 0"|cec-client -s -d 1')
+        os.system('echo "standby 0" | cec-client -s -d 1')
         return "Apagando televisor..."
 
 # Uso: X.X.X.X:5000/web?url=*enlace*
@@ -38,6 +38,18 @@ def web():
 def update():
         os.system(f"git pull https://github.com/Ki-re/api_controltv.git main") # Clonamos el repositorio    
         return "Actualización Realizada Correctamente"
+
+# Uso: X.X.X.X:5000/as
+@app.route('/as') # Marca la Raspb como source activo
+def active_source():
+        os.system('echo "as" | cec-client -s -d 1')   
+        return "Active Source correcto"
+
+# Uso: X.X.X.X:5000/status
+@app.route('/status') # Marca la Raspb como source activo
+def active_source():
+        status = os.system('echo "pow 0.0.0.0" | cec-client -s -d 1 | grep "power status"')   
+        return status
 
 ########################################################################################################################################
 
