@@ -7,4 +7,4 @@ for ip in ip_list:
     time.sleep(15)
     requests.get(f"{ip}:5000/as")
     time.sleep(5)
-    
+    requests.get(f"{ip}:5000/status")
