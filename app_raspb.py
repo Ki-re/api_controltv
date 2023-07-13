@@ -48,7 +48,7 @@ def active_source():
 # Uso: X.X.X.X:5000/status
 @app.route('/status') # Marca la Raspb como source activo
 def status():
-        status = os.system('echo "pow 0.0.0.0" | cec-client -s -d 1 | grep "power status"')   
+        status = os.system('echo "pow 0.0.0.0" | cec-client -s -d 1 | grep "power status"').read()  
         return status
 
 ########################################################################################################################################
