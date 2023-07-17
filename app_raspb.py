@@ -4,14 +4,13 @@ from flask import Flask, request
 from waitress import serve
 import subprocess
 import werkzeug.serving
+import time
 
 # Para que se encienda chromium con la raspi hay que poner lo siguiente
 # @sensible-browser IP --start-fullscreen 
 # En la ruta: /etc/xdg/lxsession/LXDE-pi/autostart
 
-while True:
-        if subprocess.check_output("hostname -I", shell=True) != "b'\n'":
-                break
+time.sleep(30)
                 
 app = Flask(__name__)
 user = subprocess.check_output("echo $USER", shell=True) # Obtenemos el username
