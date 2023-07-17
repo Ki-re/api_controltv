@@ -9,9 +9,9 @@ import werkzeug.serving
 # @sensible-browser IP --start-fullscreen 
 # En la ruta: /etc/xdg/lxsession/LXDE-pi/autostart
 
-# while True:
-#         if subprocess.check_output("hostname -I", shell=True) != "":
-#                 break
+while True:
+        if subprocess.check_output("hostname -I", shell=True) != "b'\n'":
+                break
         
 print(subprocess.check_output("hostname -I", shell=True))
         
