@@ -19,7 +19,7 @@
 
 ## Disclaimer
 
-This script was designed in 2022 and is no longer being maintained. Feel free to adapt the code to your needs.
+This script was designed in 2023 and is no longer being maintained. Feel free to adapt the code to your needs.
 
 <!-- About the Project -->
 
